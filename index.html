@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ══════════════════════════════════════
+       SEO & META
+  ══════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta -->
+  <title>Agam Budhiraja — Visual Designer & Graphic Artist</title>
+  <meta name="description" content="Portfolio of Agam Budhiraja — a visual designer and graphic artist crafting bold, editorial work spanning automotive art, anime, and motorsport photography.">
+  <meta name="keywords" content="Agam Budhiraja, graphic design, visual art, Nissan Skyline, F1 art, Jujitsu Kaisen, Hitachi train, poster design, photo editing, portfolio">
+  <meta name="author" content="Agam Budhiraja">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://agambudhiraja.carbonmade.app/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agambudhiraja.carbonmade.app/">
+  <meta property="og:title" content="Agam Budhiraja — Visual Designer & Graphic Artist">
+  <meta property="og:description" content="Bold editorial design work spanning automotive art, anime tributes, and motorsport photography. Explore projects: The Nissan Skyline, The F1 Project, The Train, and Jujitsu Kaisen: Yuta Okkotsu.">
+  <meta property="og:image" content="assets/home-bg.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Agam Budhiraja Portfolio">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://agambudhiraja.carbonmade.app/">
+  <meta name="twitter:title" content="Agam Budhiraja — Visual Designer & Graphic Artist">
+  <meta name="twitter:description" content="Bold editorial design work spanning automotive art, anime tributes, and motorsport photography.">
+  <meta name="twitter:image" content="assets/home-bg.jpeg">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Agam Budhiraja",
+    "url": "https://agambudhiraja.carbonmade.app/",
+    "jobTitle": "Visual Designer & Graphic Artist",
+    "description": "Bold editorial design work spanning automotive art, anime tributes, and motorsport photography.",
+    "knowsAbout": ["Graphic Design", "Photo Editing", "Poster Design", "Visual Art"],
+    "sameAs": [],
+    "workExample": [
+      {
+        "@type": "CreativeWork",
+        "name": "The F1 Project",
+        "description": "A series of radically edited images capturing the essence of Formula 1 team identities."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "The Nissan Skyline",
+        "description": "Monochrome poster art tribute to the iconic Nissan Skyline R34 GT-R."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "The Train",
+        "description": "Editorial photography and design honouring Hitachi's historic Japanese trains."
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Jujitsu Kaisen: Yuta Okkotsu",
+        "description": "Fan tribute poster series for the anime character Yuta Okkotsu."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Playfair Display (Serif logo) + Inter (Sans body/headings) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════
+       RESET & ROOT
+    ══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #000000;
+      --white:   #ffffff;
+      --gray:    #888888;
+      --gray2:   #555555;
+      --border:  #1c1c1c;
+      --magenta: #FF00FF;
+      --yellow:  #FFE600;
+      --serif:   'Playfair Display', Georgia, serif;
+      --sans:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       PAGE TRANSITION OVERLAY
+    ══════════════════════════════════════ */
+    #page-curtain {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s var(--ease-in-out);
+    }
+    #page-curtain.show { opacity: 1; pointer-events: all; }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 40px;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover { opacity: 0.75; }
+
+    .nav-hamburger {
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
+    .nav-hamburger:hover { opacity: 0.7; }
+    .nav-hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s var(--ease-out), opacity 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ══════════════════════════════════════
+       NAV MENU OVERLAY
+    ══════════════════════════════════════ */
+    #nav-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 400;
+      background: rgba(0, 0, 0, 0.97);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px);
+      transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+    }
+    #nav-menu.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+    .nav-menu-item {
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 800;
+      color: var(--white);
+      cursor: pointer;
+      padding: 18px 0;
+      border-bottom: 1px solid #1a1a1a;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out), color 0.2s;
+      letter-spacing: -1px;
+    }
+    .nav-menu-item:hover { color: var(--gray); }
+    #nav-menu.open .nav-menu-item:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+    #nav-menu.open .nav-menu-item:nth-child(2) { transition-delay: 0.10s; opacity: 1; transform: none; }
+    #nav-menu.open .nav-menu-item:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: none; }
+    #nav-menu.open .nav-menu-item:nth-child(4) { transition-delay: 0.20s; opacity: 1; transform: none; }
+    #nav-menu.open .nav-menu-item:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: none; }
+
+    /* ══════════════════════════════════════
+       PAGE SYSTEM
+    ══════════════════════════════════════ */
+    .page { display: none; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ══════════════════════════════════════
+       SCROLL-TRIGGERED FADE-IN
+    ══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ══════════════════════════════════════
+       MARQUEE ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes mLeft  { from { transform: translateX(0) }    to { transform: translateX(-50%) } }
+    @keyframes mRight { from { transform: translateX(-50%) } to { transform: translateX(0) }    }
+    .mtrack  { white-space: nowrap; display: inline-block; will-change: transform; }
+    .ml      { animation: mLeft  linear infinite; }
+    .mr      { animation: mRight linear infinite; }
+
+    /* Pause on hover */
+    .marquee-wrap:hover .mtrack { animation-play-state: paused; }
+
+    /* ══════════════════════════════════════
+       SHARED COMPONENTS
+    ══════════════════════════════════════ */
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--gray2);
+    }
+    .gh-icon {
+      width: 34px; height: 34px;
+      border: 1px solid #2e2e2e;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      font-size: 16px;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+    .gh-icon:hover { border-color: #666; }
+
+    /* Prev/Next nav */
+    .proj-nav {
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      padding: 32px 60px;
+    }
+    .pn-item { cursor: pointer; }
+    .pn-item.right { text-align: right; }
+    .pn-label { font-size: 11px; letter-spacing: 1.5px; color: var(--gray); margin-bottom: 6px; text-transform: uppercase; }
+    .pn-title {
+      font-size: clamp(15px, 2.2vw, 24px);
+      font-weight: 700;
+      color: var(--white);
+      transition: color 0.2s;
+    }
+    .pn-item:hover .pn-title { color: var(--gray); }
+
+    /* Split section */
+    .split-section {
+      display: flex;
+      gap: 60px;
+      padding: 80px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .split-left { flex: 0 0 230px; }
+    .split-left h2 {
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+    .split-right { flex: 1; font-size: 14px; line-height: 1.95; color: #ccc; }
+    .split-right p + p { margin-top: 18px; }
+
+    /* Body text */
+    .body-text {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 72px 40px;
+      font-size: 17px;
+      line-height: 1.82;
+      text-align: center;
+      color: #e8e8e8;
+    }
+    .body-text p + p { margin-top: 22px; }
+
+    /* Image+caption */
+    .img-caption { max-width: 840px; margin: 0 auto; padding: 40px 40px 0; }
+    .img-caption img {
+      width: 100%;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .img-caption:hover img { transform: scale(1.008); }
+    .cap-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 14px;
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Dots */
+    .dots { text-align: center; padding: 10px 0 20px; color: var(--gray); font-size: 24px; letter-spacing: 6px; }
+
+    /* Info block */
+    .info-block {
+      display: flex;
+      gap: 60px;
+      padding: 50px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .info-label { font-size: 15px; font-weight: 800; letter-spacing: 1px; flex-shrink: 0; width: 80px; }
+    .info-text  { font-size: 14px; color: var(--gray); line-height: 1.85; }
+
+    /* Section label */
+    .section-label {
+      text-align: center;
+      padding: 60px 40px 0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════
+       HOME PAGE
+    ══════════════════════════════════════ */
+    #home .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 620px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 60px 64px;
+    }
+    #home .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/home-bg.jpeg') center 30% / cover no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+      filter: brightness(0.65) saturate(1.15);
+    }
+    #home.active .hero-bg { transform: scale(1); }
+
+    /* Subtle overlay gradient */
+    #home .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    }
+
+    #home .hero-title {
+      position: relative;
+      z-index: 2;
+      font-family: var(--sans);
+      font-size: clamp(54px, 10.5vw, 128px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -3px;
+      color: var(--white);
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s 0.3s var(--ease-out), transform 0.9s 0.3s var(--ease-out);
+    }
+    #home.active .hero-title { opacity: 1; transform: none; }
+
+    /* Work heading */
+    .work-heading { text-align: center; padding: 80px 40px 50px; }
+    .work-heading h1 {
+      font-size: clamp(34px, 7vw, 78px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+    .work-heading p  { font-size: 14px; color: var(--gray); margin-bottom: 16px; }
+    .work-heading hr { width: 80px; border: none; border-top: 1px solid #3a3a3a; margin: 0 auto; }
+
+    /* Home project cards */
+    .home-project {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 40px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .home-project img {
+      width: 100%;
+      transition: transform 0.65s var(--ease-out), filter 0.4s;
+      will-change: transform;
+    }
+    .home-project:hover img { transform: scale(1.025); filter: brightness(0.88); }
+    .home-project-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray);
+      margin: 12px 0 50px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ══════════════════════════════════════
+       F1 PAGE
+    ══════════════════════════════════════ */
+    #f1 .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 620px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 64px;
+    }
+    #f1 .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/f1-bg.webp') center / cover no-repeat;
+      filter: brightness(0.48) saturate(0.85);
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    #f1.active .hero-bg { transform: scale(1); }
+    #f1 .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 60%);
+    }
+    #f1 .hero-text {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s 0.3s var(--ease-out), transform 0.8s 0.3s var(--ease-out);
+    }
+    #f1.active .hero-text { opacity: 1; transform: none; }
+    #f1 .hero-text h1 {
+      font-size: clamp(46px, 9vw, 114px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -2px;
+    }
+    #f1 .hero-text .sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 12px; max-width: 520px; line-height: 1.6; }
+
+    /* ══════════════════════════════════════
+       TRAIN PAGE
+    ══════════════════════════════════════ */
+    #train .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 620px;
+      overflow: hidden;
+    }
+    #train .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    #train.active .hero-img { transform: scale(1); }
+    #train .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%);
+    }
+
+    /* ══════════════════════════════════════
+       NISSAN PAGE
+    ══════════════════════════════════════ */
+    #nissan .page-title { text-align: center; padding: 120px 40px 60px; }
+    #nissan .page-title h1 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5.5vw, 62px);
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    #nissan .page-title p  { font-size: 15px; color: var(--gray); margin-bottom: 18px; line-height: 1.6; }
+    #nissan .page-title hr { width: 80px; border: none; border-top: 1px solid #3a3a3a; margin: 0 auto; }
+
+    .nissan-marquee-wrap { overflow: hidden; height: 210px; display: flex; align-items: center; }
+    .nissan-big {
+      font-size: clamp(100px, 19vw, 222px);
+      font-weight: 900;
+      letter-spacing: -6px;
+      line-height: 0.88;
+      padding-right: 80px;
+      background: linear-gradient(180deg, #d4d4d4 0%, #5a5a5a 55%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #nissan .poster-wrap { max-width: 420px; margin: 60px auto; padding: 0 40px; }
+    #nissan .poster-wrap img {
+      width: 100%;
+      transition: transform 0.7s var(--ease-out);
+    }
+    #nissan .poster-wrap:hover img { transform: scale(1.02); }
+
+    /* ══════════════════════════════════════
+       JJK PAGE
+    ══════════════════════════════════════ */
+    #jjk .page-title { text-align: center; padding: 120px 40px 60px; }
+    #jjk .page-title h1 {
+      font-size: clamp(28px, 6vw, 66px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+    #jjk .page-title hr { width: 80px; border: none; border-top: 1px solid #3a3a3a; margin: 0 auto; }
+
+    /* Magenta text marquee */
+    .marquee-wrap     { overflow: hidden; }
+    .magenta-big {
+      font-size: clamp(58px, 11vw, 126px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
+      color: var(--magenta);
+      padding-right: 100px;
+    }
+
+    /* Chevron strip */
+    .chevron-strip { background: var(--magenta); overflow: hidden; padding: 12px 0; }
+    .chevron-text  { font-size: 26px; font-weight: 900; color: var(--black); padding-right: 24px; line-height: 1; }
+
+    .jjk-poster-wrap { max-width: 700px; margin: 40px auto; padding: 0 40px; }
+    .jjk-poster-wrap img {
+      width: 100%;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .jjk-poster-wrap:hover img { transform: scale(1.012); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      #home .hero, #f1 .hero { padding: 0 28px 48px; }
+      #f1 .hero { padding: 28px; }
+      .split-section { flex-direction: column; padding: 60px 24px; gap: 28px; }
+      .split-left { flex: none; }
+      .proj-nav { padding: 28px 24px; }
+      .info-block { flex-direction: column; padding: 40px 24px; gap: 16px; }
+      .body-text { padding: 60px 24px; font-size: 16px; }
+      .home-project, .img-caption { padding: 0 20px; }
+      #nissan .poster-wrap, .jjk-poster-wrap { padding: 0 20px; }
+      #nav-menu { padding: 0 32px; }
+      .nav-menu-item { font-size: clamp(22px, 7vw, 36px); }
+      .section-label { padding: 48px 24px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page-transition curtain -->
+  <div id="page-curtain"></div>
+
+  <!-- ══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════ -->
+  <nav id="main-nav">
+    <span class="nav-logo" onclick="navigate('home')">Agam Budhiraja</span>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Full-screen menu overlay -->
+  <div id="nav-menu" role="navigation" aria-label="Main navigation">
+    <div class="nav-menu-item" onclick="navigate('home')">Home</div>
+    <div class="nav-menu-item" onclick="navigate('f1')">The F1 Project</div>
+    <div class="nav-menu-item" onclick="navigate('train')">The Train</div>
+    <div class="nav-menu-item" onclick="navigate('nissan')">The Nissan Skyline</div>
+    <div class="nav-menu-item" onclick="navigate('jjk')">Jujitsu Kaisen: Yuta Okkotsu</div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       HOME PAGE
+  ══════════════════════════════════════ -->
+  <main id="home" class="page active" aria-label="Home">
+
+    <!-- Hero: crescent moon over ocean -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="hero-bg" role="img" aria-label="Crescent moon rising over ocean at dusk"></div>
+      <h1 class="hero-title">BE A PART OF MY JOURNEY</h1>
+    </section>
+
+    <!-- My Work -->
+    <section aria-label="Portfolio work">
+      <div class="work-heading reveal">
+        <h1>My Work</h1>
+        <p>The product of passion, inspiration, and an ultimate goal.</p>
+        <hr>
+      </div>
+
+      <!-- F1 -->
+      <div class="home-project reveal" onclick="navigate('f1')" role="link" tabindex="0"
+           aria-label="View The F1 Project" onkeydown="if(event.key==='Enter')navigate('f1')">
+        <img src="assets/home-5.png" alt="The F1 Project — Ferrari race car, deep red duotone"
+             loading="lazy" width="840" height="473">
+      </div>
+      <p class="home-project-label reveal reveal-delay-1">The F1 Project</p>
+
+      <div class="info-block reveal">
+        <div class="info-label">INFO</div>
+        <div class="info-text">Each of my projects have their own story. From a vision to a tribute, you can read all about them right here in their own sections.</div>
+      </div>
+
+      <!-- Train -->
+      <div class="home-project reveal" onclick="navigate('train')" style="margin-top:50px;"
+           role="link" tabindex="0" aria-label="View The Train project" onkeydown="if(event.key==='Enter')navigate('train')">
+        <img src="assets/home-3.jpeg" alt="Hitachi train speeding past green foliage with yellow wireframe overlay"
+             loading="lazy" width="840" height="473">
+      </div>
+      <p class="home-project-label reveal reveal-delay-1">The Train</p>
+
+      <div class="info-block reveal">
+        <div class="info-label">INFO</div>
+        <div class="info-text">Each of my projects have their own story. From a vision to a tribute, you can read all about them right here in their own sections.</div>
+      </div>
+
+      <!-- JJK -->
+      <div class="home-project reveal" onclick="navigate('jjk')" style="margin-top:50px;"
+           role="link" tabindex="0" aria-label="View Jujitsu Kaisen: Yuta Okkotsu" onkeydown="if(event.key==='Enter')navigate('jjk')">
+        <img src="assets/home-4.png" alt="Yuta Okkotsu — magenta and black anime poster art"
+             loading="lazy" width="840" height="1180">
+      </div>
+      <p class="home-project-label reveal reveal-delay-1">Jujitsu Kaisen: Yuta Okkotsu</p>
+
+      <div class="info-block reveal">
+        <div class="info-label">INFO</div>
+        <div class="info-text">Each of my projects have their own story. From a vision to a tribute, you can read all about them right here in their own sections.</div>
+      </div>
+
+      <!-- Nissan -->
+      <div class="home-project reveal" onclick="navigate('nissan')" style="margin-top:50px;"
+           role="link" tabindex="0" aria-label="View The Nissan Skyline" onkeydown="if(event.key==='Enter')navigate('nissan')">
+        <img src="assets/home-6.png" alt="Nissan Skyline R34 GT-R — black and white poster with Japanese typography"
+             loading="lazy" width="840" height="1180">
+      </div>
+      <p class="home-project-label reveal reveal-delay-1">The Nissan Skyline</p>
+
+      <div class="info-block reveal">
+        <div class="info-label">INFO</div>
+        <div class="info-text">Each of my projects have their own story. From a vision to a tribute, you can read all about them right here in their own sections.</div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>Enigma Co.</span>
+      <span style="font-size:20px; color:#444;">✦</span>
+      <span class="gh-icon" aria-label="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+      </span>
+    </footer>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       F1 PROJECT PAGE
+  ══════════════════════════════════════ -->
+  <main id="f1" class="page" aria-label="The F1 Project">
+
+    <section class="hero" aria-label="F1 hero — wet circuit aerial photograph">
+      <div class="hero-bg" role="img" aria-label="Aerial view of F1 race on wet circuit"></div>
+      <div class="hero-text">
+        <h1>The F1 Project</h1>
+        <p class="sub">A series of radically edited images capturing the essence of their identity.</p>
+      </div>
+    </section>
+
+    <div class="img-caption reveal">
+      <img src="assets/f1-ferrari.png" alt="Ferrari F1 car — deep red duotone editorial photograph" loading="lazy">
+    </div>
+    <p class="cap-label reveal reveal-delay-1">Ferrari.</p>
+
+    <div class="img-caption reveal">
+      <img src="assets/f1-mercedes.png" alt="Mercedes AMG F1 car — teal duotone editorial photograph" loading="lazy">
+    </div>
+    <p class="cap-label reveal reveal-delay-1">Mercedes Benz.</p>
+
+    <div class="img-caption reveal">
+      <img src="assets/f1-redbull.png" alt="Red Bull Racing F1 car — deep blue duotone editorial photograph" loading="lazy">
+    </div>
+    <p class="cap-label reveal reveal-delay-1">Red Bull Racing.</p>
+
+    <div class="proj-nav reveal">
+      <div class="pn-item" onclick="navigate('jjk')" tabindex="0" onkeydown="if(event.key==='Enter')navigate('jjk')">
+        <p class="pn-label">← PREV PROJECT</p>
+        <p class="pn-title">Jujitsu Kaisen: Yuta Okkotsu</p>
+      </div>
+      <div class="pn-item right" onclick="navigate('train')" tabindex="0" onkeydown="if(event.key==='Enter')navigate('train')">
+        <p class="pn-label">NEXT PROJECT →</p>
+        <p class="pn-title">The Train</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Enigma Co.</span>
+      <span style="font-size:20px;color:#444;">✦</span>
+      <span class="gh-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </span>
+    </footer>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       THE TRAIN PAGE
+  ══════════════════════════════════════ -->
+  <main id="train" class="page" aria-label="The Train">
+
+    <section class="hero" aria-label="Hitachi train hero photograph">
+      <img class="hero-img" src="assets/train.jpeg" alt="Hitachi red train speeding through green Japanese countryside with yellow wireframe HUD overlay">
+    </section>
+
+    <p class="section-label reveal">A Monument of National Identity</p>
+
+    <div class="body-text reveal">
+      <p>The Hitachi-made old trains in Japan played an important role in creating the highly efficient rail transport in Japan and aiding urban growth after the war period. These trains made by Hitachi emphasize efficiency and reliability, playing a key role in making Japanese transport systems known to be punctual. Apart from their importance in terms of technological development, they also have cultural value as railway enthusiasts cherish their unique design and are keen on preserving or repurposing them.</p>
+    </div>
+
+    <div class="dots reveal">· · ·</div>
+    <div class="reveal" style="text-align:center; padding-bottom:60px;">
+      <span class="gh-icon" style="width:42px;height:42px;font-size:18px;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </span>
+    </div>
+
+    <div class="split-section reveal">
+      <div class="split-left"><h2>WHY I CHOSE THIS ART STYLE</h2></div>
+      <div class="split-right">
+        <p>When I first saw a picture of one of these Hitachi trains, I was facinated, how could something so simple be a part of something so big?</p>
+        <p>Seeing it's contemporary beauty and engineering, I decided to colour grade and edit the image, adding modern graphics and blending it in with that of the aged aesthetic of the train.</p>
+      </div>
+    </div>
+
+    <div class="proj-nav reveal">
+      <div class="pn-item" onclick="navigate('f1')">
+        <p class="pn-label">← PREV PROJECT</p>
+        <p class="pn-title">The F1 Projects</p>
+      </div>
+      <div class="pn-item right" onclick="navigate('nissan')">
+        <p class="pn-label">NEXT PROJECT →</p>
+        <p class="pn-title">The Nissan Skyline</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Enigma Co.</span>
+      <span style="font-size:20px;color:#444;">✦</span>
+      <span class="gh-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+    </footer>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       NISSAN SKYLINE PAGE
+  ══════════════════════════════════════ -->
+  <main id="nissan" class="page" aria-label="The Nissan Skyline">
+
+    <header class="page-title reveal">
+      <h1>The Nissan Skyline</h1>
+      <p>The Japanese masterpiece defining the street racing scene</p>
+      <hr>
+    </header>
+
+    <!-- Scrolling NISSAN marquee -->
+    <div class="nissan-marquee-wrap marquee-wrap" aria-hidden="true">
+      <div class="mtrack ml" style="animation-duration:5s;">
+        <span class="nissan-big">NISSAN</span>
+        <span class="nissan-big">NISSAN</span>
+        <span class="nissan-big">NISSAN</span>
+        <span class="nissan-big">NISSAN</span>
+      </div>
+    </div>
+
+    <div class="body-text reveal" style="text-align:left;">
+      <p>This is the Nissan Skyline R34, a car so legendary it doesn't need an introduction. But for those that need reminders of how much of an engineering marvel this car truly is, here you go.</p>
+      <p style="margin-top:18px;">
+        — An infinitely customisable tune.<br>
+        — 2.6L Turbo charged inline 6<br>
+        — 320 horsepower, but that's just the start
+      </p>
+      <p>There is not a single part of this car that isn't iconic, featuring in "2 Fast 2 Furious" — bridging the gap between the street racing scene and mainstream action. It is highly revered as one of the most iconic race cars to this day.</p>
+    </div>
+
+    <!-- Poster artwork -->
+    <div class="poster-wrap reveal">
+      <img src="assets/nissan.png" alt="Nissan Skyline R34 GT-R — high contrast black and white graphic poster with Japanese typography" loading="lazy">
+    </div>
+
+    <div class="info-block reveal">
+      <div class="info-label">INFO</div>
+      <div class="info-text">Each of my projects have their own story. From a vision to a tribute, you can read all about them right here in their own sections.</div>
+    </div>
+
+    <div class="split-section reveal">
+      <div class="split-left"><h2>WHY I CHOSE THIS ART-STYLE</h2></div>
+      <div class="split-right">
+        <p>The Nissan Skyline always seemed to me as a bold, rugged car — one with no soft edges or blurred lines, so I decided to put my perception of the car as a theme for the poster.</p>
+        <p>I aimed for monochrome, noisy photos full of life that can truly embody the car's nature, making it seem almost as if the car is still moving in some way, despite the picture being still.</p>
+      </div>
+    </div>
+
+    <div class="proj-nav reveal">
+      <div class="pn-item" onclick="navigate('train')">
+        <p class="pn-label">← PREV PROJECT</p>
+        <p class="pn-title">The Train</p>
+      </div>
+      <div></div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Enigma Co.</span>
+      <span style="font-size:20px;color:#444;">✦</span>
+      <span class="gh-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+    </footer>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       JJK PAGE
+  ══════════════════════════════════════ -->
+  <main id="jjk" class="page" aria-label="Jujitsu Kaisen: Yuta Okkotsu">
+
+    <header class="page-title reveal">
+      <h1>Jujitsu Kaisen:<br>Yuta Okkotsu</h1>
+      <hr>
+    </header>
+
+    <!-- TRUE LOVE'S CURSE marquee -->
+    <div class="marquee-wrap" aria-hidden="true" style="padding:8px 0; background:#000;">
+      <div class="mtrack ml" style="animation-duration:7s;">
+        <span class="magenta-big">TRUE LOVE'S CURSE</span>
+        <span class="magenta-big">TRUE LOVE'S CURSE</span>
+        <span class="magenta-big">TRUE LOVE'S CURSE</span>
+      </div>
+    </div>
+
+    <!-- YUTA OKKOTSU reverse marquee -->
+    <div class="marquee-wrap" aria-hidden="true" style="padding:4px 0; background:#000;">
+      <div class="mtrack mr" style="animation-duration:6s;">
+        <span class="magenta-big">YUTA OKKOTSU</span>
+        <span class="magenta-big">YUTA OKKOTSU</span>
+        <span class="magenta-big">YUTA OKKOTSU</span>
+      </div>
+    </div>
+
+    <!-- Chevron strip -->
+    <div class="chevron-strip" aria-hidden="true">
+      <div class="mtrack ml" style="animation-duration:2.2s;">
+        <span class="chevron-text">❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ </span>
+        <span class="chevron-text">❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ </span>
+      </div>
+    </div>
+
+    <!-- Poster art -->
+    <div class="jjk-poster-wrap reveal">
+      <img src="assets/home-4.png" alt="Yuta Okkotsu — full magenta and black editorial anime poster with manga panels and chevron motifs" loading="lazy">
+    </div>
+
+    <!-- Body text -->
+    <div class="body-text reveal" style="text-align:left;">
+      <p>Yuta Okkotsu is the main character of Jujitsu Kaisen 0 and a supporting character of Jujitsu Kaisen.</p>
+      <p>His story comes from his childhood, befriending someone named Rika, who then promised to marry each other, and commemorated it with a ring. Unfortunately, that was the last Yuta would see of her, as she was involved in a car crash that ended her life.</p>
+      <p>Overcome with an unfathomable amount of grief, Yuta somehow manifested the pure love and grief she had for her after her death into a curse — one that manifested as a monster built from curse energy called a shikigami.</p>
+      <p>The strength of Yuta's shikigami is built only on love, with that love being so strong that it makes the shikigami's strength rival that of some of the strongest in the world.</p>
+      <p>Additionally, having joined jujitsu society, he was known for being a prodigy, completing most of its syllabus in one year, and has the largest cursed energy output in Modern Jujitsu Kaisen history, bested only by Ryomen Sukuna himself.</p>
+    </div>
+
+    <!-- Chevron strip bottom -->
+    <div class="chevron-strip" aria-hidden="true">
+      <div class="mtrack ml" style="animation-duration:2.2s;">
+        <span class="chevron-text">❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ </span>
+        <span class="chevron-text">❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ ❯ </span>
+      </div>
+    </div>
+
+    <div class="proj-nav reveal">
+      <div></div>
+      <div class="pn-item right" onclick="navigate('f1')">
+        <p class="pn-label">NEXT PROJECT →</p>
+        <p class="pn-title">The F1 Projects</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>Enigma Co.</span>
+      <span style="font-size:20px;color:#444;">✦</span>
+      <span class="gh-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></span>
+    </footer>
+  </main>
+
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT — Routing, Animations, SEO
+  ══════════════════════════════════════ -->
+  <script>
+    'use strict';
+
+    /* ── Scroll-triggered reveal ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    function attachRevealObservers() {
+      document.querySelectorAll('.page.active .reveal').forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
+
+    /* ── Navbar scroll styling ── */
+    const mainNav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      mainNav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* ── Menu state ── */
+    let menuOpen = false;
+    const navMenu     = document.getElementById('nav-menu');
+    const hamburger   = document.getElementById('hamburger');
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      navMenu.classList.toggle('open', menuOpen);
+      hamburger.classList.toggle('open', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      navMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* Close on Escape */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
+    });
+
+    /* ── Page navigation with transition ── */
+    const curtain = document.getElementById('page-curtain');
+    let currentPage = 'home';
+
+    function navigate(id) {
+      if (id === currentPage) { closeMenu(); return; }
+      closeMenu();
+
+      /* Fade out */
+      curtain.classList.add('show');
+
+      setTimeout(() => {
+        /* Switch page */
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById(id);
+        target.classList.add('active');
+        currentPage = id;
+
+        /* Update <title> for SEO / browser history */
+        const titles = {
+          home:   'Agam Budhiraja — Visual Designer & Graphic Artist',
+          f1:     'The F1 Project — Agam Budhiraja',
+          train:  'The Train — Agam Budhiraja',
+          nissan: 'The Nissan Skyline — Agam Budhiraja',
+          jjk:    'Jujitsu Kaisen: Yuta Okkotsu — Agam Budhiraja',
+        };
+        document.title = titles[id] || titles.home;
+
+        /* Push state so browser back button works */
+        history.pushState({ page: id }, '', '#' + id);
+
+        /* Scroll to top instantly */
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        /* Observe new .reveal elements */
+        setTimeout(() => {
+          attachRevealObservers();
+          /* Fade in */
+          curtain.classList.remove('show');
+        }, 60);
+
+      }, 340);
+    }
+
+    /* Browser back / forward */
+    window.addEventListener('popstate', e => {
+      const id = (e.state && e.state.page) || 'home';
+      navigate(id);
+    });
+
+    /* Handle deep links on load */
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash)) {
+        navigate(hash);
+      } else {
+        attachRevealObservers();
+      }
+    });
+
+    /* Scroll navbar style on init */
+    mainNav.classList.toggle('scrolled', window.scrollY > 20);
+  </script>
+</body>
+</html>
