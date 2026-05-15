@@ -1,0 +1,13 @@
+{
+  "name": "-enigma",
+  "version": "1.0.0",
+  "description": "Portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "tunnel": "npx localtunnel --port 3000"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}</content>
+<parameter name="filePath">/workspaces/-enigma/package.json
