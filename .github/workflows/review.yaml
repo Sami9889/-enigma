@@ -20,7 +20,7 @@ concurrency:
 jobs:
   notify-review:
     name: Request Review
-    if: github.event_name == 'pull_request' && github.actor != 'sami9889'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Post review reminder comment
@@ -40,13 +40,13 @@ jobs:
                 "- Do **not** merge until at least one approval is given",
                 "- Once approved, the deploy to GitHub Pages will run automatically",
                 "",
-                "> 🔐 Admin `sami9889` can bypass this requirement if needed."
+                "> ⚠️ Direct pushes to `main` are blocked for everyone including admins."
               ].join("\n")
             });
 
   review-required:
     name: Review Gate
-    if: github.event_name == 'pull_request' && github.actor != 'sami9889'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: review
