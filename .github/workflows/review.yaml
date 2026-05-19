@@ -1,0 +1,78 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  notify-review:
+    name: Request Review
+    if: github.event_name == 'pull_request' && github.actor != 'sami9889'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post review reminder comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "## 👀 Review Required Before Merging",
+                "",
+                "This pull request **must be reviewed and approved** before it can be merged.",
+                "",
+                "- A reviewer needs to check the changes and click **Approve**",
+                "- Do **not** merge until at least one approval is given",
+                "- Once approved, the deploy to GitHub Pages will run automatically",
+                "",
+                "> 🔐 Admin `sami9889` can bypass this requirement if needed."
+              ].join("\n")
+            });
+
+  review-required:
+    name: Review Gate
+    if: github.event_name == 'pull_request' && github.actor != 'sami9889'
+    runs-on: ubuntu-latest
+    environment:
+      name: review
+    steps:
+      - name: Approved
+        run: echo "Approved by a required reviewer."
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
