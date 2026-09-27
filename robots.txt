@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://enigma.sami-s.dev/sitemap.xml
